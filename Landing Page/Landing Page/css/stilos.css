@@ -39,75 +39,39 @@ body {
     padding: 0 20px;
 }
 
-/* Hero Section con gradiente patriótico */
-.hero__container {
-    background: linear-gradient(135deg, #eeff03 0%, #0000ff 50%, #ff0000 100%);
-    min-height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 40px 0;
-    max-width: none !important;
-    position: relative;
+
+.swiper_container {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  height: 800px;
+  padding: 0;
+  border-radius: 0;
 }
 
-.hero__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 3rem;
-    position: relative;
-    z-index: 1;
-    min-height: 70vh;
-    padding: 40px 20px 150px;
+
+.mySwiper {
+  width: 100vw;
+  height: 100%;
+  border-radius: 0;
 }
 
-.hero__text {
-    flex: 0 0 45%; /* Más espacio para el texto */
-    text-align: left;
-}
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.hero__image {
-    flex: 0 0 10%; /* Menos espacio para la imagen */
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-}
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.hero__img:hover {
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el cursor */
-}
-
-.wave {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 150px; /* Altura de la ola */
-    z-index: 0; /* Debajo del contenido */
-}
-
-.arrow-icon {
-    margin-right: 15px;
-    font-size: 2rem;
-    color: var(--rojo-colombia);
-    text-shadow: 1px 1px 3px var(--sombra);
-    clip-path: polygon(15% 5%, 85% 5%, 85% 95%, 15% 95%);
-    transition: transform 0.3s ease; /* Para un efecto suave al pasar el cursor */
-}
-
-.arrow-text {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: 'Arial Black', sans-serif;
-}
-
-@keyframes slidePulse {
-    0% { transform: translateY(-50%) translateX(0); opacity: 0.9; }
-    50% { transform: translateY(-50%) translateX(-10px); opacity: 1; }
-    100% { transform: translateY(-50%) translateX(0); opacity: 0.9; }
-}
 
 /* Navegación */
 .nav {

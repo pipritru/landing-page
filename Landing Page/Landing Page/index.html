@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="./images/Favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/stilos.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
 </head>
 <body>
     <header class="hero">
@@ -16,12 +17,7 @@
             </div>
             
             <ul class="nav__link nav__link--menu">
-                <li class="nav__items">
-                    <a href="#inicio" class="nav__links">Inicio</a>
-                </li>
-                <li class="nav__items">
-                    <a href="blog.html" class="nav__links">Conoce a Murillo</a>
-                </li>
+
                 <li class="nav__items">
                     <a href="#propuestas" class="nav__links">Voluntarios</a>
                 </li>
@@ -32,29 +28,53 @@
                 <img src="./images/exit.svg" class="nav__exit" alt="Cerrar menú">
             </ul>
 
-            <div class="nav__menu">
-                <img src="./images/menu.svg" class="nav__img" alt="Abrir menú">
-            </div>
+            <div class="socials">
+                <a href="#">
+                    <div class="social">
+                        <img src="./images/facebook.svg" alt="facebook">
+                    </div>
+                </a>
+
+                   <a href="#">
+                    <div class="social">
+                        <img src="./images/instagram.svg" alt="instagram>
+                    </div>
+
+                </a>
+                   <a href="#">
+                    <div class="social">
+                        <img src="./images/whatsapp.svg" alt="whatsapp">
+                    </div>
+                </a>
+
+
+
+            </div> 
+           
         </nav>
     </header>
     
     <!-- Sección Hero -->
-    <section id="inicio" class="hero__container container">
-        <div class="hero__content">
-            <div class="hero__text">
-                <h1 class="hero__title">VOTA POR EL CAMBIO</h1>
-                <p class="hero__paragraph">¡Juntos, con fuerza y esperanza, transformaremos Colombia! Vota por Luis Gilberto Murillo para construir un futuro de progreso, equidad y justicia para todos y todas.</p>
-                <a href="blog.html" class="cta">Conoce a Murillo</a>
-            </div>
-            <div class="hero__image">
-                <img src="./images/Muriillo2.png" alt="Luis Gilberto Murillo" class="hero__img">
-            </div>
+    <section class="body_swiper">
+        <div class="swiper_container">
+             <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+             </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+
         </div>
-        <div class="wave" style="height: 150px; overflow: hidden;">
-            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                <path d="M-3.67,10.38 C244.07,210.70 349.20,-49.98 501.97,28.13 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #F5F5F5;"></path>
-            </svg>
-        </div>
+
     </section>
 
     <!-- Sección Propuestas (Voluntarios) -->
@@ -414,6 +434,8 @@
         </div>
     </footer>
 
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/index.js"></script>
     <script>
         // JavaScript para el menú móvil
         document.addEventListener('DOMContentLoaded', function() {
@@ -494,6 +516,19 @@
                     form.reset();
                 });
             }
+
+            // Inicialización de Swiper
+            var swiper = new Swiper('.mySwiper', {
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
         });
     </script>
 </body>
