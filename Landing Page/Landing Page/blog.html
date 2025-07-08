@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Luis Gilberto Murillo - La Nueva Colombia</title>
+    <link rel="shortcut icon" href="./images/Favicon.png" type="image/x-icon">
+    <style>
+        /* Variables CSS */
+        :root {
+            --amarillo-colombia: #FCDD09;
+            --azul-colombia: #003893;
+            --rojo-colombia: #CE1126;
+            --blanco: #FFFFFF;
+            --gris-oscuro: #333333;
+            --sombra: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.80)), url('./images/Map-Colombia.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header y Navegación */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 56, 147, 0.9), rgba(252, 221, 9, 0.9));
+            color: var(--blanco);
+            padding: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav__title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--blanco);
+        }
+
+        .nav__link {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav__links {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav__links:hover {
+            color: var(--amarillo-colombia);
+        }
+
+        .nav__menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .nav__img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .nav__exit {
+            display: none;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        /* Sección Quién es Murillo */
+        .community {
+            padding: 80px 0;
+            background: transparent;
+        }
+
+        .section__title {
+            font-size: 2.5rem;
+            color: var(--azul-colombia);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .section__title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--amarillo-colombia), var(--rojo-colombia));
+            border-radius: 2px;
+        }
+
+        .section__subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .community__content {
+            text-align: center;
+        }
+
+        .community__paragraph {
+            font-size: 1.1rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Slideshow Mejorado */
+        .community__slideshow {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 3rem auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--sombra);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .community__slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 400%; /* 4 slides × 100% */
+        }
+
+        .community__slide {
+            width: 25%; /* 100% / 4 slides */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .community__slide-img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--sombra);
+            transition: transform 0.3s ease;
+        }
+
+        .community__slide-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Flechas de navegación */
+        .community__arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .community__arrow:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .community__arrow--prev {
+            left: 20px;
+        }
+
+        .community__arrow--next {
+            right: 20px;
+        }
+
+        /* Indicadores (dots) */
+        .community__dots {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .community__dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background-color: rgba(204, 204, 204, 0.8);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .community__dot.active {
+            background-color: var(--amarillo-colombia);
+            transform: scale(1.2);
+            border-color: var(--azul-colombia);
+        }
+
+        .community__dot:hover {
+            background-color: var(--azul-colombia);
+        }
+
+        /* Botón CTA */
+        .cta {
+            display: inline-block;
+            background: var(--amarillo-colombia);
+            color: var(--azul-colombia);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px var(--sombra);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2rem;
+        }
+
+        .cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            background: #FFE55C;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 56, 147, 0.95);
+            color: var(--blanco);
+            padding: 60px 0 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer__wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer__column h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer__column h2 span {
+            color: var(--amarillo-colombia);
+        }
+
+        .footer__column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--amarillo-colombia);
+        }
+
+        .footer__column ul {
+            list-style: none;
+        }
+
+        .footer__column li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer__column a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer__column a:hover {
+            color: var(--amarillo-colombia);
+        }
+
+        .footer__column p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .footer__bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer__bottom p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            .nav__link {
+                position: fixed;
+                background: var(--azul-colombia);
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                z-index: 100;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav__link--show {
+                transform: translateX(0);
+            }
+
+            .nav__menu {
+                display: block;
+            }
+
+            .nav__exit {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .community__slideshow {
+                max-width: 100%;
+            }
+
+            .community__slide {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .community__slide-img {
+                width: 250px;
+                height: 167px;
+            }
+
+            .section__title {
+                font-size: 2rem;
+            }
+
+            .community__paragraph {
+                font-size: 1rem;
+                text-align: left;
+                padding: 20px;
+            }
+
+            .footer__wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .community__slide-img {
+                width: 200px;
+                height: 133px;
+            }
+
+            .cta {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+
+            .nav__title {
+                font-size: 1.5rem;
+            }
+
+            .community__paragraph {
+                padding: 15px;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero">
+        <nav class="nav container"> 
+            <div class="nav__logo">
+                <h2 class="nav__title">La Nueva Colombia.</h2>
+            </div>
+            
+            <ul class="nav__link nav__link--menu">
+                <li class="nav__items">
+                    <a href="index.html" class="nav__links">Inicio</a>
+                </li>
+                <li class="nav__items">
+                    <a href="blog.html" class="nav__links">Acerca de</a>
+                </li>
+                <li class="nav__items">
+                    <a href="index.html#propuestas" class="nav__links">Voluntarios</a>
+                </li>
+                <li class="nav__items">
+                    <a href="index.html#contacto" class="nav__links">Formulario</a>
+                </li>
+
+                <div class="nav__exit">✕</div>
+            </ul>
+
+            <div class="nav__menu">
+                <div style="width: 24px; height: 24px; background: white; border-radius: 2px; position: relative;">
+                    <div style="width: 18px; height: 2px; background: #003893; position: absolute; top: 5px; left: 3px;"></div>
+                    <div style="width: 18px; height: 2px; background: #003893; position: absolute; top: 11px; left: 3px;"></div>
+                    <div style="width: 18px; height: 2px; background: #003893; position: absolute; top: 17px; left: 3px;"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Quién es Murillo -->
+    <section class="community">
+        <div class="container">
+            <h2 class="section__title">¿Quién es Luis Gilberto Murillo?</h2>
+            <p class="section__subtitle">Un líder comprometido con el futuro de Colombia.</p>
+            
+            <div class="community__content">
+                <p class="community__paragraph">
+                    Luis Gilberto Murillo es un líder colombiano con una trayectoria destacada en la defensa del medio ambiente, la equidad social y el desarrollo sostenible. Nacido en el Chocó, una de las regiones más diversas y desafiadas de Colombia, Murillo ha dedicado su vida a construir puentes entre comunidades y a promover un país más inclusivo.
+                </p>
+                <p class="community__paragraph">
+                    Como exministro de Medio Ambiente y Desarrollo Sostenible, ha trabajado incansablemente para proteger los recursos naturales de Colombia y garantizar que las políticas públicas beneficien a las comunidades más vulnerables. Su experiencia como gobernador del Chocó le permitió entender las necesidades de las regiones olvidadas, llevando progreso y esperanza a miles de colombianos.
+                </p>
+                <p class="community__paragraph">
+                    Con una visión clara, Luis Gilberto Murillo propone una Colombia unida, donde la justicia social, la sostenibilidad ambiental y las oportunidades económicas sean una realidad para todos. Su liderazgo se basa en la honestidad, la disciplina y un compromiso inquebrantable con el bienestar de las comunidades.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Comunidad Mejorada -->
+    <section class="community">
+        <div class="container">
+            <h2 class="section__title">Nuestro Movimiento en Acción</h2>
+            <p class="section__subtitle">Unidos por una Colombia más fuerte y equitativa.</p>
+            
+            <div class="community__content">
+                <p class="community__paragraph">
+                    Luis Gilberto Murillo cree en el poder de la comunidad para transformar Colombia. Desde reuniones en los barrios hasta encuentros en las regiones más remotas, nuestro movimiento reúne a personas de todos los orígenes para construir un futuro inclusivo y sostenible. Explora las imágenes de nuestra campaña que capturan el espíritu de unidad, compromiso con la niñez y acuerdos por el progreso.
+                </p>
+                
+                <div class="community__slideshow">
+                    <div class="community__slides">
+                        <!-- Slide 1: Murillo con la comunidad -->
+                        <div class="community__slide">
+                            <img src="./images/Murillo-Gente5.jpg" alt="Luis Gilberto Murillo con la comunidad" class="community__slide-img">
+                            <img src="./images/Murillo-Comunidad.jpg" alt="Luis Gilberto Murillo en evento comunitario" class="community__slide-img">
+                            <img src="./images/Murillo-Gente.jpg" alt="Luis Gilberto Murillo con ciudadanos" class="community__slide-img">
+                        </div>
+                        
+                        <!-- Slide 2: Encuentros ciudadanos -->
+                        <div class="community__slide">
+                            <img src="./images/Murillo-Gente2.jpg" alt="Luis Gilberto Murillo con ciudadanos" class="community__slide-img">
+                            <img src="./images/Murillo-Gente3.jpg" alt="Luis Gilberto Murillo en reunión" class="community__slide-img">
+                            <img src="./images/Murillo-Gente4.jpg" alt="Luis Gilberto Murillo en encuentro" class="community__slide-img">
+                        </div>
+                        
+                        <!-- Slide 3: Compromiso con la niñez -->
+                        <div class="community__slide">
+                            <img src="./images/Murillo-Ninos.jpg" alt="Luis Gilberto Murillo con niños" class="community__slide-img">
+                            <img src="./images/Murillo-Ninos2.jpg" alt="Luis Gilberto Murillo con la niñez" class="community__slide-img">
+                            <img src="./images/Murillo-Tratados.jpg" alt="Luis Gilberto Murillo en acuerdos" class="community__slide-img">
+                        </div>
+                        
+                        <!-- Slide 4: Acuerdos y tratados -->
+                        <div class="community__slide">
+                            <img src="./images/Murillo-Tratados2.jpg" alt="Luis Gilberto Murillo firmando acuerdos" class="community__slide-img">
+                            <img src="./images/Murillo-Gente5.jpg" alt="Luis Gilberto Murillo con la comunidad" class="community__slide-img">
+                            <img src="./images/Murillo-Comunidad.jpg" alt="Luis Gilberto Murillo en evento" class="community__slide-img">
+                        </div>
+                    </div>
+                    
+                    <!-- Flechas de navegación -->
+                    <button class="community__arrow community__arrow--prev" onclick="prevSlide()">❮</button>
+                    <button class="community__arrow community__arrow--next" onclick="nextSlide()">❯</button>
+                    
+                    <!-- Indicadores -->
+                    <div class="community__dots">
+                        <span class="community__dot active" onclick="currentSlide(1)"></span>
+                        <span class="community__dot" onclick="currentSlide(2)"></span>
+                        <span class="community__dot" onclick="currentSlide(3)"></span>
+                        <span class="community__dot" onclick="currentSlide(4)"></span>
+                    </div>
+                </div>
+                
+                <a href="index.html#contacto" class="cta">¡Súmate como voluntario!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__wrapper">
+                <div class="footer__column brand">
+                    <h2>Una Colombia <span>Unida</span></h2>
+                    <p>Por un país más justo, sostenible y con oportunidades para todos.</p>
+                    <p>Bogotá, Colombia</p>
+                </div>
+
+                <div class="footer__column">
+                    <h3>Secciones</h3>
+                    <ul>
+                        <li><a href="index.html#inicio">Inicio</a></li>
+                        <li><a href="blog.html">Acerca de</a></li>
+                        <li><a href="index.html#propuestas">Voluntarios</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3>Información Legal</h3>
+                    <ul>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos de uso</a></li>
+                        <li><a href="#">Código de Ética</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column">
+                    <h3>Redes Sociales</h3>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">WhatsApp Comunidad</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>© 2025 Una Colombia Unida. Todos los derechos reservados.</p>
+                <p><strong>Luis Gilberto Murillo</strong> – Candidato Presidencial</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para el menú móvil
+        document.addEventListener('DOMContentLoaded', function() {
+            const navMenu = document.querySelector('.nav__menu');
+            const navLink = document.querySelector('.nav__link');
+            const navExit = document.querySelector('.nav__exit');
+
+            // Abrir menú
+            navMenu.addEventListener('click', () => {
+                navLink.classList.add('nav__link--show');
+            });
+
+            // Cerrar menú
+            navExit.addEventListener('click', () => {
+                navLink.classList.remove('nav__link--show');
+            });
+
+            // Cerrar menú al hacer click en un enlace
+            document.querySelectorAll('.nav__links').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLink.classList.remove('nav__link--show');
+                });
+            });
+        });
+
+        // JavaScript para el slideshow mejorado
+        let slideIndex = 1;
+        let slideInterval;
+
+        function initSlideshow() {
+            showSlides(slideIndex);
+            startAutoSlide();
+        }
+
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                slideIndex++;
+                if (slideIndex > 4) {
+                    slideIndex = 1;
+                }
+                showSlides(slideIndex);
+            }, 6000); // Cambia cada 6 segundos
+        }
+
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        function nextSlide() {
+            stopAutoSlide();
+            slideIndex++;
+            if (slideIndex > 4) {
+                slideIndex = 1;
+            }
+            showSlides(slideIndex);
+            startAutoSlide();
+        }
+
+        function prevSlide() {
+            stopAutoSlide();
+            slideIndex--;
+            if (slideIndex < 1) {
+                slideIndex = 4;
+            }
+            showSlides(slideIndex);
+            startAutoSlide();
+        }
+
+        function currentSlide(n) {
+            stopAutoSlide();
+            slideIndex = n;
+            showSlides(slideIndex);
+            startAutoSlide();
+        }
+
+        function showSlides(n) {
+            const slides = document.querySelector('.community__slides');
+            const dots = document.querySelectorAll('.community__dot');
+            
+            // Calcular el desplazamiento
+            const translateX = -((n - 1) * 25); // 25% por slide
+            slides.style.transform = `translateX(${translateX}%)`;
+            
+            // Actualizar indicadores
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[n - 1].classList.add('active');
+        }
+
+        // Pausar slideshow al pasar el mouse
+        document.querySelector('.community__slideshow').addEventListener('mouseenter', stopAutoSlide);
+        document.querySelector('.community__slideshow').addEventListener('mouseleave', startAutoSlide);
+
+        // Inicializar cuando se carga la página
+        document.addEventListener('DOMContentLoaded', initSlideshow);
+    </script>
+</body>
+</html>
