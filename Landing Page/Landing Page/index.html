@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/stilos.css">
     <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
     <header class="hero">
@@ -176,20 +178,23 @@
         </div>
     </section>
 
-    <!-- Sección Call to Action -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta__title">MurilloIA</h2>
-                <p class="cta__text">
-                    Habla con MurilloIA, tu asistente virtual.
-                </p>
-                <div class="cta__buttons">
-                    <a href="#contacto" class="btn btn--primary">Iniciar</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Sección Murillo IA -->  
+    <section class="murilloia" id="murilloia">
+    <h2 class="murilloia__title">Murillo IA<br><span style="font-weight: 400; font-size: 1.1rem;">Tu asistente para construir una Colombia más justa</span></h2>
+
+    <div class="murilloia__bubbles">
+        <p class="murilloia__bubble active">¿Tienes una idea para mejorar tu barrio?</p>
+        <p class="murilloia__bubble">¿Te interesa salud, educación o trabajo?</p>
+        <p class="murilloia__bubble">¡Hazle tu propuesta a Murillo IA!</p>
+     </div>
+
+     <img src="images/Muriillo2.png" alt="Murillo IA" class="murilloia__avatar">
+
+     <div class="murilloia__chatbox">
+         <input type="text" placeholder="Escribe tu mensaje..." class="murilloia__input">
+         <button class="murilloia__send"><i class="fa fa-paper-plane"></i> Iniciar chat</button>
+    </div>
+</section>
 
     <!-- Sección Contacto -->
     <section id="contacto" class="contact">
@@ -442,31 +447,31 @@
 
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/index.js"></script>
+
     <script>
-        // JavaScript para el menú móvil
         document.addEventListener('DOMContentLoaded', function() {
+            // Menú móvil
             const navMenu = document.querySelector('.nav__menu');
             const navLink = document.querySelector('.nav__link');
             const navExit = document.querySelector('.nav__exit');
 
-            // Abrir menú
-            navMenu.addEventListener('click', () => {
-                navLink.classList.add('nav__link--show');
-            });
+            if (navMenu && navLink && navExit) {
+                navMenu.addEventListener('click', () => {
+                    navLink.classList.add('nav__link--show');
+                });
 
-            // Cerrar menú
-            navExit.addEventListener('click', () => {
-                navLink.classList.remove('nav__link--show');
-            });
-
-            // Cerrar menú al hacer click en un enlace
-            document.querySelectorAll('.nav__links').forEach(link => {
-                link.addEventListener('click', () => {
+                navExit.addEventListener('click', () => {
                     navLink.classList.remove('nav__link--show');
                 });
-            });
 
-            // Smooth scrolling para los enlaces de navegación
+                document.querySelectorAll('.nav__links').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLink.classList.remove('nav__link--show');
+                    });
+                });
+            }
+
+            // Smooth scrolling para enlaces internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -480,7 +485,7 @@
                 });
             });
 
-            // Animación de números en las estadísticas
+            // Animación de números
             function animateNumbers() {
                 const stats = document.querySelectorAll('.stat__number');
                 stats.forEach(stat => {
@@ -493,27 +498,27 @@
                             current = target;
                             clearInterval(timer);
                         }
-                        stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '') + (stat.textContent.includes('%') ? '%' : '');
+                        stat.textContent = Math.floor(current) + 
+                            (stat.textContent.includes('+') ? '+' : '') + 
+                            (stat.textContent.includes('%') ? '%' : '');
                     }, 50);
                 });
             }
 
-            // Intersection Observer para animar cuando sea visible
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateNumbers();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-
             const aboutSection = document.querySelector('.about__stats');
             if (aboutSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateNumbers();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
                 observer.observe(aboutSection);
             }
 
-            // Manejo del formulario
+            // Envío de formulario
             const form = document.querySelector('.contact__form form');
             if (form) {
                 form.addEventListener('submit', function(e) {
@@ -523,8 +528,8 @@
                 });
             }
 
-            // Inicialización de Swiper
-            var swiper = new Swiper('.mySwiper', {
+            // Swiper
+            const swiper = new Swiper('.mySwiper', {
                 loop: true,
                 navigation: {
                     nextEl: '.swiper-button-next',
@@ -535,7 +540,19 @@
                     clickable: true,
                 },
             });
+
+            // Animación para globos de texto de Murillo IA
+            const bubbles = document.querySelectorAll('.murilloia__bubble');
+            let i = 0;
+            if (bubbles.length > 0) {
+                setInterval(() => {
+                    bubbles.forEach(b => b.classList.remove('active'));
+                    bubbles[i % bubbles.length].classList.add('active');
+                    i++;
+                }, 4000);
+            }
         });
     </script>
 </body>
 </html>
+

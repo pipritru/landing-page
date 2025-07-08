@@ -401,40 +401,94 @@ body {
     font-size: 0.9rem;
 }
 
-/* Call to Action */
-.cta-section {
-    padding: 80px 0;
-    background: linear-gradient(45deg, var(--amarillo-colombia), #FFE55C);
-    text-align: center;
+/* Murillo IA */
+.murilloia {
+  background: linear-gradient(to bottom, #ffffff, #f7f7f7);
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 5px solid var(--amarillo-colombia);
 }
 
-.cta-content {
-    max-width: 800px;
-    margin: 0 auto;
+.murilloia__title {
+  font-size: 2.2rem;
+  color: var(--azul-colombia);
+  margin-bottom: 20px;
+  font-weight: 800;
 }
 
-.cta__title {
-    font-size: 3rem;
-    color: var(--azul-colombia);
-    margin-bottom: 1.5rem;
-    font-weight: 800;
+.murilloia__avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid var(--amarillo-colombia);
+  object-fit: cover;
+  margin: 20px auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.4s;
+}
+.murilloia__avatar:hover {
+  transform: scale(1.05);
 }
 
-.cta__text {
-    font-size: 1.3rem;
-    color: var(--azul-colombia);
-    margin-bottom: 2.5rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+.murilloia__bubbles {
+  height: 30px;
+  margin-bottom: 30px;
+  position: relative;
 }
 
-.cta__buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+.murilloia__bubble {
+  font-style: italic;
+  color: var(--gris-oscuro);
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  transition: opacity 0.5s;
 }
+
+.murilloia__bubble.active {
+  opacity: 1;
+}
+
+.murilloia__chatbox {
+  background: #2b2b2b;
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+  margin: 30px auto 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.murilloia__input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+}
+
+.murilloia__send {
+  background: var(--azul-colombia);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.murilloia__send:hover {
+  background: #002975;
+}
+
+
+
 
 /* Botones */
 .btn {
