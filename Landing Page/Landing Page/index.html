@@ -180,13 +180,12 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta__title">¡Únete al Cambio!</h2>
+                <h2 class="cta__title">MurilloIA</h2>
                 <p class="cta__text">
-                    Tu voto es tu voz. Juntos construiremos una Colombia más justa, 
-                    próspera y sostenible para todos.
+                    Habla con MurilloIA, tu asistente virtual.
                 </p>
                 <div class="cta__buttons">
-                    <a href="#contacto" class="btn btn--primary">Apóyanos</a>
+                    <a href="#contacto" class="btn btn--primary">Iniciar</a>
                 </div>
             </div>
         </div>
@@ -372,7 +371,14 @@
 
                     <div class="form__group">
                         <label for="comoAyudar" class="required">¿Cómo quieres ayudar?</label>
-                        <textarea id="comoAyudar" class="form__textarea" rows="5" required></textarea>
+                        <select id="comoAyudar" class="form__input" required>
+                            <option value="">Selecciona una opcion</option>
+                            <option value="voluntario">Voluntarios</option>
+                            <option value="donaciones">donaciones</option>
+                            <option value="apoyo">Apoyo en eventos</option>
+                            <option value="difusion">Difusión en redes sociales</option>
+                            <option value="otro">Otro</option>
+                        </select>
                         <span class="form__error"></span>
                     </div>
 
