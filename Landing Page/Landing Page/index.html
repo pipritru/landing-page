@@ -7,9 +7,9 @@
     <link rel="shortcut icon" href="./images/Favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/stilos.css">
-    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 </head>
 <body>
     <header class="hero">
@@ -56,51 +56,72 @@
         </nav>
     </header>
     
-    <!-- Sección Hero -->
-    <section class="body_swiper">
-        <div class="swiper_container">
-             <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="imagenes swiper1">
-                        <img src="images/Muriillo2.png" alt="">
-                    </div>
-                </div>
+  <!-- Sección Hero -->
+<section class="body_swiper">
+  <div class="swiper">
+ <div class="swiper-wrapper">
+  <!-- Slide 1: grande y completo -->
+  <div class="swiper-slide first-slide">
+    <img src="images/Muriillo2.png" alt="Murillo" class="img_swiper first-img">
+    <div class="slide-overlay big-text">
+      <h1 class="hero__title">VOTA POR EL CAMBIO</h1>
+      <p class="hero__paragraph">
+        ¡Juntos, con fuerza y esperanza, transformaremos Colombia!<br>
+        Vota por Luis Gilberto Murillo para construir un futuro de progreso, equidad y justicia para todos y todas.
+      </p>
+      <a href="blog.html" class="slide-button">Conoce a Murillo</a>
+    </div>
+  </div>
 
-                <div class="swiper-slide">
-                    <div class="imagenes swiper2">
-                        <img src="images/Murrilo presentacion.jpg" alt="">
-                    </div>
-                </div>
+  <!-- Slide 2 -->
+  <div class="swiper-slide">
+    <img src="images/Murrilo presentacion.jpg" alt="" class="img_swiper">
+    <div class="slide-overlay small-text">
+      <p class="hero__paragraph">¡Unidos sembramos esperanza!</p>
+    </div>
+  </div>
 
-                <div class="swiper-slide">
-                   <div class="imagenes swiper3">
-                        <img src="images/Murrillo regalos.jpg" alt="">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="imagenes swiper4">
-                        <img src="images/Murillos niños.jpg" alt="">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="imagenes swiper5">
-                        <img src="images/Murillo baile.jpg" alt="">
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="imagenes swiper6">
-                        <img src="images/Murillo barco.jpg" alt="">
-                    </div>
-                </div>
-             </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+  <!-- Slide 3 -->
+  <div class="swiper-slide">
+    <img src="images/Murrillo regalos.jpg" alt="" class="img_swiper">
+    <div class="slide-overlay small-text">
+      <p class="hero__paragraph">Con honestidad y compromiso, todo es posible.</p>
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="swiper-slide">
+    <img src="images/Murillos niños.jpg" alt="" class="img_swiper">
+    <div class="slide-overlay small-text">s
+      <p class="hero__paragraph">¡Los niños son el futuro de nuestra nación!</p>
+    </div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="swiper-slide">
+    <img src="images/Murillo baile.jpg" alt="" class="img_swiper">
+    <div class="slide-overlay small-text">
+      <p class="hero__paragraph">Colombia merece alegría y transformación.</p>
+    </div>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="swiper-slide">
+    <img src="images/Murillo barco.jpg" alt="" class="img_swiper">
+    <div class="slide-overlay small-text">
+      <p class="hero__paragraph">Navegando hacia un futuro justo y equitativo.</p>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Controles -->
     <div class="swiper-pagination"></div>
-
-        </div> <!-- Cierre de .swiper_container -->
-
-    </section>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+</section>
 
     <!-- Sección Propuestas (Voluntarios) -->
     <section id="propuestas" class="proposals">
@@ -159,6 +180,17 @@
             </div>
         </div>
     </section>
+
+    <!-- Sección Video -->
+   <section class="video-section">
+  <div class="video-container">
+    <video id="murilloVideo" width="100%" poster="images/portada-video.jpg">
+      <source src="/videos/VIDEO-2025-05-21-21-00-20.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+    <button id="playBtn" class="video-button">▶️</button>
+  </div>
+</section>
 
     <!-- Sección Testimonios -->
     <section class="testimonials">
@@ -468,8 +500,7 @@
         </div>
     </footer>
 
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/index.js"></script>
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -576,6 +607,11 @@
             }
         });
     </script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script src="./js/video.js"></script>
 </body>
 </html>
 
