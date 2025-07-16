@@ -20,8 +20,200 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
+
+
+
+/* Importando fuentes */
+@import url('https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900');
+
+/* Estilos base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: 'Public Sans', 'Noto Sans', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* Header styles */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaedf0;
+  padding: 0.75rem 2.5rem;
+  background-color: #fff;
+  width: 100%;
+}
+
+/* Navigation container */
+.nav.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo styles */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #111418;
+}
+
+.nav__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+/* Navigation links */
+.nav__link {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav__items {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+/* Unificar estilo de todos los botones principales */
+
+
+
+
+/* Unificar SOLO los botones del header: Voluntarios, Formulario y Conoce a Murillo */
+.nav__link .nav__links, .nav__acciones .nav__button {
+  font-family: 'Public Sans', 'Noto Sans', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  padding: 0.65rem 2.1rem;
+  border-radius: 2rem;
+  background: var(--azul-colombia);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 18px var(--sombra);
+  border: none;
+  margin: 0 0.3rem;
+  line-height: 1.5;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  min-width: 150px;
+  max-width: 200px;
+  text-align: center;
+}
+
+.nav__link .nav__links:hover, .nav__link .nav__links:focus, .nav__acciones .nav__button:hover, .nav__acciones .nav__button:focus {
+  background: var(--amarillo-colombia);
+  color: var(--azul-colombia);
+  transform: scale(1.06);
+}
+
+
+
+
+
+
+.hero {
+  min-height: 150px;
+  padding: 2.2rem 5rem 2.2rem 5rem;
+}
+
+
+.nav__title {
+  font-size: 2.7rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90px;
+    padding: 1rem 1.2rem;
+  }
+  .nav__title {
+    font-size: 1.3rem;
+  }
+  .nav__links, .nav__button, .slide-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+    min-width: 120px;
+    max-width: 100%;
+  }
+}
+
+/* Action buttons and socials */
+.nav__acciones {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+/* Eliminar estilos antiguos de .nav__button para evitar conflictos. El botón del header ahora usa el estilo global unificado. */
+
+.socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #eaedf0;
+  border-radius: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.socials a:hover {
+  background-color: #d1d5db;
+}
+
+
+.socials img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .nav.container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav__link {
+    gap: 1rem;
+  }
+
+  .nav__acciones {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+    overflow-x: hidden;
+/* Corregido: cierre de media query innecesario eliminado */
 
 .hero {
     background-color: #FFF; /* Blanco con tono azul */
@@ -1017,19 +1209,23 @@ video {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-    .contact__form {
-        max-width: 100%;
-    }
-    
-    .proposals__grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-    
-    .hero-arrow {
-        right: -70px;
-        font-size: 1.1rem;
-        padding: 10px 20px;
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90px;
+    padding: 1.2rem 0.5rem;
+  }
+  .nav__title {
+    font-size: 1.5rem;
+  }
+  .nav__links, .nav__button, .slide-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+  .socials img {
+    width: 24px;
+    height: 24px;
+  }
+}
     }
 }
 

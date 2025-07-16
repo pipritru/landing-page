@@ -1,0 +1,274 @@
+:root {
+    --amarillo-colombia: #FCDD09;
+    --azul-colombia: #003893;
+    --rojo-colombia: #CE1126;
+    --blanco: #FFFFFF;
+    --gris-claro: #F5F5F5;
+    --gris-medio: #E0E0E0;
+    --gris-oscuro: #333333;
+    --sombra: rgba(0, 0, 0, 0.1);
+    --sombra-fuerte: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+    line-height: 1.6;
+}
+
+/* Encabezado */
+.header {
+    background: linear-gradient(90deg, var(--azul-colombia), var(--amarillo-colombia), var(--rojo-colombia));
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px var(--sombra-fuerte);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+}
+
+
+/* Botones del header con estilo creativo */
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem 1.6rem;
+    margin: 0 0.5rem;
+    border-radius: 2rem;
+    background: linear-gradient(90deg, var(--azul-colombia) 60%, var(--amarillo-colombia) 100%);
+    box-shadow: 0 4px 18px var(--sombra);
+    font-weight: 700;
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, var(--rojo-colombia) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+    border-radius: 2rem;
+}
+
+.nav-link:hover, .nav-link:focus {
+    background: linear-gradient(90deg, var(--amarillo-colombia) 0%, var(--azul-colombia) 100%);
+    color: var(--azul-colombia);
+    transform: scale(1.07) translateY(-2px);
+    box-shadow: 0 8px 24px var(--sombra-fuerte);
+}
+
+.nav-link:hover::after, .nav-link:focus::after {
+    opacity: 0.18;
+}
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--amarillo-colombia), var(--azul-colombia), var(--rojo-colombia));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px var(--sombra-fuerte);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Sección Principal */
+.main-content {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--blanco);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 6px 12px var(--sombra);
+}
+
+.map-container {
+    flex: 1;
+}
+
+.map-image {
+    max-width: 100%;
+    border-radius: 10px;
+    filter: drop-shadow(0 4px 8px var(--sombra-fuerte));
+    transition: transform 0.3s ease;
+}
+
+.map-image:hover {
+    transform: rotate(2deg) scale(1.05);
+}
+
+.hero-text {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    color: var(--azul-colombia);
+    margin-bottom: 1rem;
+}
+
+.hero-text .highlight {
+    color: var(--rojo-colombia);
+    font-weight: bold;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--gris-oscuro);
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    background-color: var(--amarillo-colombia);
+    color: var(--gris-oscuro);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--rojo-colombia);
+    color: var(--blanco);
+    transform: scale(1.05);
+}
+
+/* Sección de Comentarios */
+.comments-section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--blanco);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px var(--sombra);
+}
+
+.comments-section h2 {
+    font-size: 1.8rem;
+    color: var(--azul-colombia);
+    margin-bottom: 1.5rem;
+}
+
+.comment-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.comment-form textarea {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid var(--gris-medio);
+    border-radius: 10px;
+    resize: vertical;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.comment-form textarea:focus {
+    outline: none;
+    border-color: var(--azul-colombia);
+    box-shadow: 0 0 5px var(--sombra-fuerte);
+}
+
+.submit-comment {
+    background-color: var(--azul-colombia);
+    color: var(--blanco);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-comment:hover {
+    background-color: var(--rojo-colombia);
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comment {
+    background: var(--gris-claro);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px var(--sombra);
+}
+
+.comment-user {
+    font-weight: bold;
+    color: var(--azul-colombia);
+    margin-bottom: 0.5rem;
+}
+
+.comment-text {
+    margin-bottom: 0.5rem;
+}
+
+.comment-date {
+    font-size: 0.9rem;
+    color: var(--gris-medio);
+}
+
+/* Pie de Página */
+.footer {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
