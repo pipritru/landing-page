@@ -716,12 +716,13 @@ video {
   object-fit: cover;
   margin: 20px auto;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  transition: transform 0.4s;
+  transition: transform 0.4s ease;
 }
 .murilloia__avatar:hover {
   transform: scale(1.05);
 }
 
+/* Burbujas dinámicas */
 .murilloia__bubbles {
   height: 30px;
   margin-bottom: 30px;
@@ -734,13 +735,26 @@ video {
   opacity: 0;
   position: absolute;
   width: 100%;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s, transform 0.5s;
 }
 
 .murilloia__bubble.active {
   opacity: 1;
+  animation: fadeUp 0.8s ease forwards;
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Caja del chat */
 .murilloia__chatbox {
   background: #2b2b2b;
   border-radius: 15px;
@@ -762,6 +776,11 @@ video {
   font-size: 1rem;
   font-family: inherit;
   background: #fff;
+  transition: box-shadow 0.3s;
+}
+.murilloia__input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--azul-colombia);
 }
 
 .murilloia__send {
@@ -778,6 +797,47 @@ video {
 .murilloia__send:hover {
   background: #002975;
 }
+
+/* Indicador de escritura de Murillo */
+.murilloia__response {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.murilloia__typing {
+  display: inline-block;
+}
+
+.murilloia__typing .dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 3px;
+  background-color: var(--azul-colombia);
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.murilloia__typing .dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.murilloia__typing .dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+.murilloia__typing .dot:nth-child(3) {
+  animation-delay: 0s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  } 
+  40% {
+    transform: scale(1);
+  }
+}
+
+
 
 
 

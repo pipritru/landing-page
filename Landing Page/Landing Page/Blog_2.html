@@ -1,64 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firmas por Colombia</title>
-    <link rel="stylesheet" href="./css/styles_2.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog 2 - Firmas por Colombia</title>
+  <link rel="stylesheet" href="css/styles_2.css">
 </head>
 <body>
-    <!-- Encabezado -->
-    <header class="header">
-        <div class="logo">
-            <img src="https://via.placeholder.com/150x50?text=Logo+Colombia" alt="Logo Colombia">
-        </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html" class="nav-link">Inicio</a></li>
-                <li><a href="blog.html" class="nav-link">Murillo</a></li>
-                <li><a href="index.html#contacto" class="nav-link">Formulario</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Sección Principal -->
-    <main class="main-content">
-        <div class="hero">
-            <div class="map-container">
-                <img src="https://via.placeholder.com/400x400?text=Mapa+3D+Colombia" alt="Mapa 3D de Colombia" class="map-image">
-            </div>
-            <div class="hero-text">
-                <h1>¡Somos <span class="highlight">X</span> millones de colombianos!</h1>
-                <p>Sé parte de este movimiento. Únete y deja tu huella por Colombia.</p>
-                <a href="index.html#contacto"><button hrer="index.html#contacto" class="cta-button">Únete ahora</button></a>
-            </div>
-        </div>
-    </main>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Colombia.svg" alt="Logo Colombia" height="40">
 
-    <!-- Sección de Comentarios -->
-    <section class="comments-section">
-        <h2>Comentarios de la comunidad</h2>
-        <div class="comment-form">
-            <textarea placeholder="Escribe tu comentario..." rows="4"></textarea>
-            <button class="submit-comment">Enviar</button>
-        </div>
-        <div class="comments-list">
-            <div class="comment">
-                <div a="comment-user">Juan Pérez</div>
-                <div class="comment-text">¡Orgulloso de ser colombiano! Vamos por más.</div>
-                <div class="comment-date">Hace 2 horas</div>
-            </div>
-            <div class="comment">
-                <div class="comment-user">María López</div>
-                <div class="comment-text">Apoyemos esta causa, Colombia nos necesita.</div>
-                <div class="comment-date">Hace 5 horas</div>
-            </div>
-        </div>
-    </section>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="murillo.html">Murillo</a>
+      <a href="formulario.html">Formulario</a>
+    </div>
+  </div>
 
-    <!-- Pie de Página -->
-    <footer class="footer">
-        <p>&copy; 2025 Firmas por Colombia. Todos los derechos reservados.</p>
-    </footer>
+  <!-- Encabezado -->
+  <header class="hero">
+    <div class="hero-text">
+      <h1>¡Somos <span class="red-x">X</span> millones de colombianos!</h1>
+      <p>Sé parte de este movimiento. Únete y deja tu huella por Colombia.</p>
+        <a href="index.html#contacto" class="btn-unete">Únete ahora</a>
+
+    </div>
+   <img src="images/mapa-colombia.png" alt="Mapa de Colombia" class="mapa-img">
+
+  </header>
+
+  <!-- Sección de Comentarios -->
+  <section class="comentarios">
+    <h2>Comentarios de la comunidad</h2>
+    <textarea placeholder="Escribe tu comentario..."></textarea>
+    <button class="btn-enviar">Enviar</button>
+
+    <div class="comentario">
+      <strong>Juan Pérez</strong>
+      <p>¡Orgulloso de ser colombiano! Vamos por más.</p>
+      <small>Hace 2 horas</small>
+    </div>
+    <div class="comentario">
+      <strong>María López</strong>
+      <p>Apoyo total al movimiento. 💙💛❤️</p>
+      <small>Hace 3 horas</small>
+    </div>
+  </section>
+
 </body>
 </html>

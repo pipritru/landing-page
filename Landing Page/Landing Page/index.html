@@ -217,23 +217,37 @@
         </div>
     </section>
 
-    <!-- Sección Murillo IA -->  
+    <!-- Sección Murillo IA -->
     <section class="murilloia" id="murilloia">
-    <h2 class="murilloia__title">Murillo IA<br><span style="font-weight: 400; font-size: 1.1rem;">Tu asistente para construir una Colombia más justa</span></h2>
+        <h2 class="murilloia__title">
+         Murillo IA<br>
+             <span style="font-weight: 400; font-size: 1.1rem;">
+             Tu asistente para construir una Colombia más justa
+             </span>
+        </h2>
 
-    <div class="murilloia__bubbles">
+    <div class="murilloia__bubbles" id="bubble-rotator">
         <p class="murilloia__bubble active">¿Tienes una idea para mejorar tu barrio?</p>
         <p class="murilloia__bubble">¿Te interesa salud, educación o trabajo?</p>
         <p class="murilloia__bubble">¡Hazle tu propuesta a Murillo IA!</p>
-     </div>
+    </div>
 
-     <img src="images/Muriillo2.png" alt="Murillo IA" class="murilloia__avatar">
+    <img src="images/Muriillo2.png" alt="Murillo IA" class="murilloia__avatar" id="murillo-avatar">
 
-     <div class="murilloia__chatbox">
-         <input type="text" placeholder="Escribe tu mensaje..." class="murilloia__input">
-         <button class="murilloia__send"><i class="fa fa-paper-plane"></i> Iniciar chat</button>
+    <div class="murilloia__chatbox" id="murillo-chatbox">
+        <input type="text" placeholder="Escribe tu mensaje..." class="murilloia__input" id="user-input">
+        <button class="murilloia__send" id="send-btn"><i class="fa fa-paper-plane"></i> Enviar</button>
+    </div>
+
+    <div class="murilloia__response" id="response-area" style="display: none;">
+        <div class="murilloia__typing">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
     </div>
 </section>
+
 
     <!-- Sección Contacto -->
     <section id="contacto" class="contact">
@@ -486,111 +500,142 @@
 
     
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Menú móvil
-            const navMenu = document.querySelector('.nav__menu');
-            const navLink = document.querySelector('.nav__link');
-            const navExit = document.querySelector('.nav__exit');
+   <script>
+document.addEventListener('DOMContentLoaded', function () {
 
-            if (navMenu && navLink && navExit) {
-                navMenu.addEventListener('click', () => {
-                    navLink.classList.add('nav__link--show');
-                });
+    // Menú móvil
+    const navMenu = document.querySelector('.nav__menu');
+    const navLink = document.querySelector('.nav__link');
+    const navExit = document.querySelector('.nav__exit');
 
-                navExit.addEventListener('click', () => {
-                    navLink.classList.remove('nav__link--show');
-                });
+    if (navMenu && navLink && navExit) {
+        navMenu.addEventListener('click', () => {
+            navLink.classList.add('nav__link--show');
+        });
 
-                document.querySelectorAll('.nav__links').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLink.classList.remove('nav__link--show');
-                    });
-                });
-            }
+        navExit.addEventListener('click', () => {
+            navLink.classList.remove('nav__link--show');
+        });
 
-            // Smooth scrolling para enlaces internos
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
+        document.querySelectorAll('.nav__links').forEach(link => {
+            link.addEventListener('click', () => {
+                navLink.classList.remove('nav__link--show');
             });
+        });
+    }
 
-            // Animación de números
-            function animateNumbers() {
-                const stats = document.querySelectorAll('.stat__number');
-                stats.forEach(stat => {
-                    const target = parseInt(stat.textContent.replace('+', '').replace('%', ''));
-                    let current = 0;
-                    const increment = target / 50;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            current = target;
-                            clearInterval(timer);
-                        }
-                        stat.textContent = Math.floor(current) + 
-                            (stat.textContent.includes('+') ? '+' : '') + 
-                            (stat.textContent.includes('%') ? '%' : '');
-                    }, 50);
-                });
-            }
-
-            const aboutSection = document.querySelector('.about__stats');
-            if (aboutSection) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateNumbers();
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                });
-                observer.observe(aboutSection);
-            }
-
-            // Envío de formulario
-            const form = document.querySelector('.contact__form form');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-                    form.reset();
-                });
-            }
-
-            // Swiper
-            const swiper = new Swiper('.mySwiper', {
-                loop: true,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-            });
-
-            // Animación para globos de texto de Murillo IA
-            const bubbles = document.querySelectorAll('.murilloia__bubble');
-            let i = 0;
-            if (bubbles.length > 0) {
-                setInterval(() => {
-                    bubbles.forEach(b => b.classList.remove('active'));
-                    bubbles[i % bubbles.length].classList.add('active');
-                    i++;
-                }, 4000);
+    // Scroll suave para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
-    </script>
+    });
+
+    // Animación de números en sección "about"
+    function animateNumbers() {
+        const stats = document.querySelectorAll('.stat__number');
+        stats.forEach(stat => {
+            const raw = stat.textContent;
+            const target = parseInt(raw.replace('+', '').replace('%', ''));
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                stat.textContent = Math.floor(current) +
+                    (raw.includes('+') ? '+' : '') +
+                    (raw.includes('%') ? '%' : '');
+            }, 50);
+        });
+    }
+
+    const aboutSection = document.querySelector('.about__stats');
+    if (aboutSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        observer.observe(aboutSection);
+    }
+
+    // Formulario de contacto
+    const form = document.querySelector('.contact__form form');
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            form.reset();
+        });
+    }
+
+    // Swiper (slider)
+    const swiper = new Swiper('.mySwiper', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    // Rotación de burbujas de Murillo IA
+    const bubbles = document.querySelectorAll('.murilloia__bubble');
+    let currentBubble = 0;
+    if (bubbles.length > 0) {
+        setInterval(() => {
+            bubbles.forEach(b => b.classList.remove('active'));
+            bubbles[currentBubble % bubbles.length].classList.add('active');
+            currentBubble++;
+        }, 4000);
+    }
+
+    // Simulación de respuesta automática de Murillo IA
+    const murilloInput = document.querySelector('.murilloia__input');
+    const murilloSend = document.querySelector('.murilloia__send');
+
+    if (murilloInput && murilloSend) {
+        murilloSend.addEventListener('click', () => {
+            const userText = murilloInput.value.trim();
+            if (userText === '') return;
+
+            // Mostrar indicador de escritura
+            const responseBox = document.createElement('div');
+            responseBox.classList.add('murilloia__response');
+            responseBox.innerHTML = `
+                <p><strong>Murillo IA:</strong></p>
+                <div class="murilloia__typing">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            `;
+            murilloInput.value = '';
+            murilloInput.parentNode.insertAdjacentElement('afterend', responseBox);
+
+            // Simular respuesta después de un tiempo
+            setTimeout(() => {
+                responseBox.innerHTML = `<p><strong>Murillo IA:</strong> Gracias por tu mensaje. Estamos construyendo juntos por una colombia unida</p>`;
+            }, 2000);
+        });
+    }
+
+});
+</script>
+
     
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
